@@ -1,8 +1,9 @@
+import os
 from supabase import create_client
 
-# Your Supabase credentials
-url = "https://gilvijxmudywgcaslfxz.supabase.co"
-key = "sb_publishable_3QYyHIXrfZJb5s-DBjnrDg_qSDRVBRd"
+# Credentials come from the environment (see .env.example)
+url = os.environ["SUPABASE_URL"]
+key = os.environ["SUPABASE_KEY"]  # publishable key; still keep it out of git
 
 # Create connection to database
 supabase = create_client(url, key)

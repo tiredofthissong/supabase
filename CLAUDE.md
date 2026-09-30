@@ -8,8 +8,8 @@
 
 ## Supabase Credentials
 
-- **Project URL:** `https://gilvijxmudywgcaslfxz.supabase.co`
-- **Public API Key:** `sb_publishable_3QYyHIXrfZJb5s-DBjnrDg_qSDRVBRd`
+- **Project URL / key:** set `SUPABASE_URL` and `SUPABASE_KEY` in a gitignored `.env` (copy `.env.example`). Never paste them into this file.
+- **Row Level Security:** must stay ON for every table, with policies written. Never disable RLS to make a front end work.
 - **Dashboard:** [supabase.com/dashboard](https://supabase.com/dashboard)
 
 ---
@@ -60,8 +60,9 @@ Interactive Plotly visualization (auto-generated, don't edit manually).
 ```python
 from supabase import create_client
 
-url = "https://gilvijxmudywgcaslfxz.supabase.co"
-key = "sb_publishable_3QYyHIXrfZJb5s-DBjnrDg_qSDRVBRd"
+import os
+url = os.environ["SUPABASE_URL"]
+key = os.environ["SUPABASE_KEY"]
 supabase = create_client(url, key)
 
 supabase.table("courses").insert({"title": "Course Name Here"}).execute()
